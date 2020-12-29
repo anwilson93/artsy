@@ -1,9 +1,10 @@
 const router = require('express').Router();
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
+const { ArtProduct } = require('../../db/models');
 
 // GET /api/set-token-cookie
-// const asyncHandler = require('express-async-handler');
+const asyncHandler = require('express-async-handler');
 // const { setTokenCookie } = require('../../utils/auth.js');
 // const { User } = require('../../db/models');
 // router.get(
@@ -38,6 +39,15 @@ const usersRouter = require('./users.js');
 router.post('/test', function (req, res) {
   res.json({ requestBody: req.body });
 });
+
+router.get('/testing', asyncHandler(async (req, res) => {
+  const paintings = await ArtProduct.findAll({
+      where: {
+        shopId: 1
+      }
+    });
+  return res.json({paintings})
+}));
 
 router.use('/session', sessionRouter);
 
