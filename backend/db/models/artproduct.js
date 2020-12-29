@@ -10,9 +10,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   ArtProduct.associate = function(models) {
     // associations can be defined here
-    ArtProduct.belongsTo(models.Shop, { foreignKey: 'shopId' });
+    ArtProduct.hasMany(models.OrderDetail, { foreignKey: 'artProductId' });
+    ArtProduct.hasMany(models.ArtProductReview, { foreignKey: 'artProductId' });
+    ArtProduct.hasMany(models.Fav, { foreignKey: 'artProductId' });
     ArtProduct.hasMany(models.ImageUrl, { foreignKey: 'artProductId' });
-    ArtProduct.hasMany(models.OrderDetails, { foreignKey: 'artProductId' });
+    ArtProduct.belongsTo(models.Shop, { foreignKey: 'shopId' });
   };
   return ArtProduct;
 };
