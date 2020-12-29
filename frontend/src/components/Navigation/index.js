@@ -5,6 +5,7 @@ import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
 import SearchBar from '../SearchBar';
+import HomePage from '../HomePage';
 
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
@@ -24,16 +25,17 @@ function Navigation({ isLoaded }){
   }
 
   return (
-    <ul id='top-nav-bar'>
-      <li>
-        <NavLink id='nav-bar-logo' exact to="/">Artsy</NavLink>
-      </li>
-      <SearchBar />
-      <li>
-        {isLoaded && sessionLinks}
-      </li>
-    </ul>
-    
+    <>
+      <ul id='top-nav-bar'>
+        <li>
+          <NavLink id='nav-bar-logo' exact to="/">Artsy</NavLink>
+        </li>
+        <SearchBar />
+        <li>
+          {isLoaded && sessionLinks}
+        </li>
+      </ul>
+    </>
   );
 }
 
