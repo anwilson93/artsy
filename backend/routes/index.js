@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const apiRouter = require('./api');
+const testUploadRoute = require('./test-upload-routes')
 
 router.use('/api', apiRouter);
+router.use('/temp', testUploadRoute)
 
 router.get('/hello/world', function (req, res) {
   res.cookie('XSRF-TOKEN', req.csrfToken());
