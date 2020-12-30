@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
-const { ArtProduct, User } = require('../../db/models');
+const { ArtProduct, User, ImageUrl } = require('../../db/models');
 const asyncHandler = require('express-async-handler');
 const { setTokenCookie } = require('../../utils/auth.js');
 
@@ -40,14 +40,10 @@ router.get(
 //   res.json({ requestBody: req.body });
 // });
 
-// router.get('/testing', asyncHandler(async (req, res) => {
-//   const paintings = await ArtProduct.findAll({
-//       where: {
-//         shopId: 1
-//       }
-//     });
-//   return res.json({paintings})
-// }));
+router.get('/testing', asyncHandler(async (req, res) => {
+  const artProducts = await ImageUrl.findAll();
+  return res.json({artProducts})
+}));
 
 router.use('/session', sessionRouter);
 
