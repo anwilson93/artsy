@@ -1,3 +1,30 @@
 .profile-dropdown {
   position: absolute;
+  right: 0;
+}
+
+#profile-button {
+  margin-right: 10px;
+}
+
+#top-nav-bar {
+  background-color: rgb(202, 226, 214);
+  margin: 0;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  list-style-type: none;
+}
+
+#nav-bar-logo {
+  font-size: 40px;
+  color: rgb(9, 32, 51);
+  padding-left: 10px;
+}
+
+#signup {
+  padding-left: 10px;
+  padding-right: 20px;
+  color: rgb(10, 39, 63);
 }
