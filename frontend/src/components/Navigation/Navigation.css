@@ -1,5 +1,10 @@
 .profile-dropdown {
   position: absolute;
+  right: 0;
+}
+
+#profile-button {
+  margin-right: 10px;
 }
 
 #top-nav-bar {
@@ -8,7 +13,7 @@
   height: 100px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   list-style-type: none;
 }
 

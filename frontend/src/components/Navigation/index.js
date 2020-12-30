@@ -5,7 +5,6 @@ import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
 import SearchBar from '../SearchBar';
-import HomePage from '../HomePage';
 
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
