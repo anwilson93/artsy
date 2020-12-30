@@ -7,6 +7,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import HomePage from "./components/HomePage";
 import AddProduct from "./components/AddProduct";
+import ViewProduct from "./components/ViewProduct";
 
 function App() {
   const dispatch = useDispatch();
@@ -28,6 +29,9 @@ function App() {
           </Route>
           <Route path='/test'>
             <AddProduct />
+          </Route>
+          <Route path='/products/:id'>
+            <ViewProduct />
           </Route>
           <Route path='/'>
             <HomePage />

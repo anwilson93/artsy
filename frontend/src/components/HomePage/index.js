@@ -6,6 +6,7 @@ import photography from './nathan-dumlao-p4TKmK4Egvg-unsplash.jpg';
 import {useEffect} from 'react';
 import {fetchAllProducts} from '../../store/artProducts';
 import {useDispatch, useSelector} from 'react-redux';
+import {Link} from 'react-router-dom';
 function HomePage () {
     const sessionUser = useSelector(state => state.session.user);
 
@@ -37,7 +38,10 @@ function HomePage () {
                 console.log(art.ArtProduct.price)
                 return (
                 <div className='product-listing'>
-                    <img style={{width: 200, height: 200}} src ={art.url} key={art.artProductId} alt=''/>
+                    <Link to={`/products/${art.artProductId}`}>
+                        <img style={{width: 200, height: 200}} src ={art.url} key={art.artProductId} alt='' />
+                    </Link>
+                    
                     <div className='product-prices' key={art.ArtProduct}>Price: ${art.ArtProduct.price}</div>
                 </div>
 
