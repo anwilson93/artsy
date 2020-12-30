@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
-const { ArtProduct, User, ImageUrl } = require('../../db/models');
+const productsRouter = require('./products.js');
+const { User } = require('../../db/models');
 const asyncHandler = require('express-async-handler');
 const { setTokenCookie } = require('../../utils/auth.js');
 
@@ -40,13 +41,12 @@ router.get(
 //   res.json({ requestBody: req.body });
 // });
 
-router.get('/testing', asyncHandler(async (req, res) => {
-  const artProducts = await ImageUrl.findAll();
-  return res.json({artProducts})
-}));
+
 
 router.use('/session', sessionRouter);
 
 router.use('/users', usersRouter);
+
+router.use('/products', productsRouter);
 
 module.exports = router;

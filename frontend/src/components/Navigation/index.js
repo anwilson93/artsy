@@ -29,7 +29,7 @@ function Navigation({ isLoaded }){
         <li>
           <NavLink id='nav-bar-logo' exact to="/">Artsy</NavLink>
         </li>
-        <SearchBar />
+          <SearchBar />
         <li>
           {isLoaded && sessionLinks}
         </li>

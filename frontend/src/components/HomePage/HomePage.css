@@ -5,3 +5,13 @@
   align-items: center;
   justify-content: space-around;
 }
+
+.product-listing {
+  display: inline-block;
+  /* display: flex; */
+}
+
+.product-prices {
+  font-size: 17px;
+  font-weight: bold;
+}

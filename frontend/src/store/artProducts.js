@@ -11,7 +11,7 @@ const setArtProducts = (art) => ({
 //thunk
 export const fetchAllProducts = () => {
     return async (dispatch) => {
-        const res = await fetch('/api/testing')
+        const res = await fetch('/api/products')
         dispatch(
             setArtProducts(res.data.artProducts)
         );
