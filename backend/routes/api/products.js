@@ -6,8 +6,16 @@ const router = express.Router();
 router.get(`/:id(\\d+)`, asyncHandler(async (req, res) => {
   const id = req.params.id
   const artProduct = await ArtProduct.findByPk(id, {
-    include: Shop
+    include: [
+    {
+      model: Shop,
+    },
+    {
+      model: ImageUrl
+    }
+    ] 
   });
+  
   return res.json({artProduct})
 }));
 
