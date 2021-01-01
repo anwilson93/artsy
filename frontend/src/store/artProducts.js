@@ -1,20 +1,24 @@
+
 import { fetch } from './csrf.js';
 
 const SET_ART_PRODUCTS = 'artProducts/setArtProducts';
 const SET_ART_PRODUCT = 'artProduct/setArtProduct';
 
-// action creator that produces obj
-const setArtProducts = (art) => ({
+const initialState = {
+    artProducts: [],
+    oneArtProduct: []
+};
+const setArtProducts = (artProducts) => ({
   type: SET_ART_PRODUCTS,
-  payload: art
+  payload: artProducts
 });
 
-const setArtProduct = (art) => ({
+const setArtProduct = (artProduct) => ({
   type: SET_ART_PRODUCT,
-  payload: art
+  payload: artProduct
 });
 
-//thunk
+
 export const fetchAllProducts = () => {
     return async (dispatch) => {
         const res = await fetch('/api/products')
@@ -34,16 +38,15 @@ export const fetchOneProduct = (id) => {
 };
 
 
-const initialState = [];
 
 function reducer(state = initialState, action) {
   let newState;
   switch (action.type) {
     case SET_ART_PRODUCTS:
-      newState = action.payload;
+      newState = Object.assign({}, state, { artProducts: action.payload });
       return newState;
     case SET_ART_PRODUCT:
-      newState = action.payload;
+      newState = Object.assign({}, state, { oneArtProduct: action.payload });
       return newState;
     default:
       return state;

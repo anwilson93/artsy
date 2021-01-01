@@ -11,8 +11,8 @@ function HomePage () {
     const sessionUser = useSelector(state => state.session.user);
 
     const dispatch = useDispatch()
-    const currentArtProducts = useSelector(fullReduxState => {
-        return fullReduxState.artProducts
+    const currentArtProductImgs = useSelector(state => {
+        return state.artProducts.artProducts
     });
     useEffect (() => {
         // const res = await fetch('/api/testing')
@@ -20,6 +20,7 @@ function HomePage () {
         // console.log(res)
         dispatch(fetchAllProducts())
     }, [dispatch])
+
     return (
         <div>
             <div id="jumbotron">
@@ -34,8 +35,7 @@ function HomePage () {
             </div>
             {sessionUser && <h2>Welcome, {sessionUser.username}!</h2>}
 
-            {currentArtProducts && currentArtProducts.map(art => {
-                console.log(art.ArtProduct.price)
+            {currentArtProductImgs && currentArtProductImgs.map(art => {
                 return (
                 <div className='product-listing'>
                     <Link to={`/products/${art.artProductId}`}>
@@ -49,6 +49,10 @@ function HomePage () {
             })}
         </div>
     )
+
+    // return (
+    //     <h1>hi</h1>
+    // )
 }
 
 export default HomePage;

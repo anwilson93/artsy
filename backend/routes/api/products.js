@@ -1,13 +1,24 @@
 const express = require('express');
-const { ImageUrl, ArtProduct, Shop } = require('../../db/models');
+const { ImageUrl, ArtProduct, Shop, ArtProductReview } = require('../../db/models');
 const asyncHandler = require("express-async-handler");
 const router = express.Router();
 
 router.get(`/:id(\\d+)`, asyncHandler(async (req, res) => {
   const id = req.params.id
   const artProduct = await ArtProduct.findByPk(id, {
-    include: Shop
+    include: [
+    {
+      model: Shop
+    },
+    {
+      model: ImageUrl
+    },
+    {
+      model: ArtProductReview
+    }
+    ] 
   });
+  
   return res.json({artProduct})
 }));
 
