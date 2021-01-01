@@ -3,6 +3,7 @@ import {useEffect} from 'react';
 import {fetchOneProduct} from '../../store/artProducts';
 import {useDispatch, useSelector} from 'react-redux';
 import AddToCart from "./AddToCart";
+import ProductReview from "../ProductReview";
 
 const ViewProduct = () => {
   
@@ -32,6 +33,7 @@ const ViewProduct = () => {
         <div>
             <img style={{width: 500, height: 600, marginTop: 50, marginLeft: 200}} src ={currentArtProduct.ImageUrls[0].url} key={currentArtProduct.ImageUrls[0].artProductId} alt='' />
             <AddToCart currentArtProduct={currentArtProduct} />
+            <ProductReview />
         </div>
      
     )

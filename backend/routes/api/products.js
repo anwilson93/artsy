@@ -1,5 +1,5 @@
 const express = require('express');
-const { ImageUrl, ArtProduct, Shop } = require('../../db/models');
+const { ImageUrl, ArtProduct, Shop, ArtProductReview } = require('../../db/models');
 const asyncHandler = require("express-async-handler");
 const router = express.Router();
 
@@ -8,10 +8,13 @@ router.get(`/:id(\\d+)`, asyncHandler(async (req, res) => {
   const artProduct = await ArtProduct.findByPk(id, {
     include: [
     {
-      model: Shop,
+      model: Shop
     },
     {
       model: ImageUrl
+    },
+    {
+      model: ArtProductReview
     }
     ] 
   });

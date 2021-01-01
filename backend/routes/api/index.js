@@ -2,6 +2,7 @@ const router = require('express').Router();
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const productsRouter = require('./products.js');
+const reviewsRouter = require('./reviews.js');
 const { User } = require('../../db/models');
 const asyncHandler = require('express-async-handler');
 const { setTokenCookie } = require('../../utils/auth.js');
@@ -48,5 +49,7 @@ router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
 
 router.use('/products', productsRouter);
+
+router.use('/reviews', reviewsRouter);
 
 module.exports = router;
