@@ -7,11 +7,19 @@
 }
 
 .product-listing {
-  display: inline-block;
-  /* display: flex; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 10px;
 }
 
 .product-prices {
   font-size: 17px;
   font-weight: bold;
+  border-bottom: 2px rgb(202, 226, 214) solid;
+}
+
+#link {
+  color: rgb(94, 90, 90);
 }

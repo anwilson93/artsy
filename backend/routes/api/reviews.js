@@ -1,5 +1,5 @@
 const express = require('express');
-const { ImageUrl, ArtProduct, Shop, ArtProductReview } = require('../../db/models');
+const { ImageUrl, ArtProduct, Shop, ArtProductReview, User } = require('../../db/models');
 const asyncHandler = require("express-async-handler");
 const router = express.Router();
 
@@ -8,7 +8,8 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
   const artProductReviews = await ArtProductReview.findAll({
       where: {
         artProductId: id
-      }
+      },
+      include: User
   });
   return res.json({artProductReviews})
 }));

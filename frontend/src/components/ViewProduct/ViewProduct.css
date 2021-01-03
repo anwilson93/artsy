@@ -1,5 +1,6 @@
 .product-info {
-  border: 1px black solid;
+  border-left: 1px black solid;
+  border-right: 1px black solid;
   /* position: absolute; */
   float: right;
   margin-top: 50px;
