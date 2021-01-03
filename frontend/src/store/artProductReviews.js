@@ -12,10 +12,6 @@ const setArtProductReviews = (reviews) => ({
   payload: reviews
 });
 
-// const setArtProduct = (artProduct) => ({
-//   type: SET_ART_PRODUCT,
-//   payload: artProduct
-// });
 
 // GET ALL REVIEWS
 export const fetchAllReviews = (id) => {
@@ -30,8 +26,7 @@ export const fetchAllReviews = (id) => {
 
 // CREATE REVIEW
 export const createReview = (artProductReview) => async (dispatch) => {
-   const { artProductId, userId, review } = artProductReview;
-  console.log('rgtjoi', review)
+  const { artProductId, userId, review } = artProductReview;
   const res = await fetch(`/api/reviews/${artProductId}`, {
     method: 'POST',
      body: JSON.stringify({

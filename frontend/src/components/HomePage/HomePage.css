@@ -6,6 +6,11 @@
   justify-content: space-around;
 }
 
+.jumbotron-titles {
+  display: flex;
+  justify-content: space-around;
+}
+
 .product-listing {
   display: flex;
   flex-direction: row;

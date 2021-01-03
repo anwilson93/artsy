@@ -7,6 +7,8 @@ import {useEffect} from 'react';
 import {fetchAllProducts} from '../../store/artProducts';
 import {useDispatch, useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
+import {search} from '../../store/search.js';
+
 function HomePage () {
     const sessionUser = useSelector(state => state.session.user);
 
@@ -14,31 +16,111 @@ function HomePage () {
     const currentArtProductImgs = useSelector(state => {
         return state.artProducts.artProducts
     });
+
+    const searchedProducts = useSelector(state => {
+        console.log('thisssssssssssss', state.searchedProducts.searchedProducts)
+        return state.searchedProducts.searchedProducts
+    });
+
     useEffect (() => {
-        // const res = await fetch('/api/testing')
-        // setArtProducts(res.data.artProducts)
-        // console.log(res)
         dispatch(fetchAllProducts())
+        dispatch(search)
     }, [dispatch])
+
+    console.log('trueeeeeee', dispatch(search))
+    if (searchedProducts.length>0){
 
     return (
         <div>
             <div id="jumbotron">
+                <Link to={``} id='link'>
                 <img style={{width: 200, height: 200, borderRadius: 200/ 2}}
                 key='canvas'
-                src={canvas} alt='' />
+                src={canvas} alt='' /> 
+                <div className='jumbotron-titles'>Canvas</div>
+                </Link>
+
+                <Link to={``} id='link'>
                 <img style={{width: 200, height: 200, borderRadius: 200/ 2}}
                 key='painting'
-                src={painting} alt='' />
+                src={painting} alt='' /> 
+                <div className='jumbotron-titles'>Painting</div>
+                </Link>
+                
+                <Link to={``} id='link'>
                 <img style={{width: 200, height: 200, borderRadius: 200/ 2}}
                 key='pottery'
-                src={pottery} alt='' />
+                src={pottery} alt='' /> 
+                <div className='jumbotron-titles'>Pottery</div>
+                </Link>
+
+                <Link to={``} id='link'>
                 <img style={{width: 200, height: 200, borderRadius: 200/ 2}}
                 key='photography'
-                src={photography} alt=''/>
+                src={photography} alt=''/> 
+                <div className='jumbotron-titles'>Photography</div>
+                </Link>
             </div>
+
+
             {sessionUser && <h2>Welcome, {sessionUser.username}!</h2>}
+            <h3>Search Results:</h3>
             <div className='product-listing'>
+                {searchedProducts && searchedProducts.map(product => {
+                return (
+                    <>
+                        <Link to={`/products/${product.id}`} id='link'>
+                            <img className='product-listing' style={{width: 200, height: 200}} src ={product.ImageUrls[0].url} key={product.id} alt='' /> 
+                            <div className='product-prices'>Title: {product.title}</div>
+                            <div className='product-prices'> Price: ${product.price}</div>
+                        </Link>
+                    </>
+                )
+            })}
+            </div>
+        </div>
+    )
+
+    } else {
+
+    return (
+        <div>
+            <div id="jumbotron">
+                <Link to={``} id='link'>
+                <img style={{width: 200, height: 200, borderRadius: 200/ 2}}
+                key='canvas'
+                src={canvas} alt='' /> 
+                <div className='jumbotron-titles'>Canvas</div>
+                </Link>
+
+                <Link to={``} id='link'>
+                <img style={{width: 200, height: 200, borderRadius: 200/ 2}}
+                key='painting'
+                src={painting} alt='' /> 
+                <div className='jumbotron-titles'>Painting</div>
+                </Link>
+                
+                <Link to={``} id='link'>
+                <img style={{width: 200, height: 200, borderRadius: 200/ 2}}
+                key='pottery'
+                src={pottery} alt='' /> 
+                <div className='jumbotron-titles'>Pottery</div>
+                </Link>
+
+                <Link to={``} id='link'>
+                <img style={{width: 200, height: 200, borderRadius: 200/ 2}}
+                key='photography'
+                src={photography} alt=''/> 
+                <div className='jumbotron-titles'>Photography</div>
+                </Link>
+            </div>
+
+
+            {sessionUser && <h2>Welcome, {sessionUser.username}!</h2>}
+
+
+            <div className='product-listing'>
+            
             {currentArtProductImgs && currentArtProductImgs.map(art => {
                 return (
                     <>
@@ -53,10 +135,12 @@ function HomePage () {
             </div>
         </div>
     )
+        }
 
     // return (
     //     <h1>hi</h1>
     // )
 }
+
 
 export default HomePage;
