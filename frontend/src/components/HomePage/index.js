@@ -21,6 +21,7 @@ function HomePage () {
         return state.searchedProducts.searchedProducts
     });
 
+
     useEffect (() => {
         dispatch(fetchAllProducts())
         dispatch(search)
