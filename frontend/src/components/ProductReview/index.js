@@ -20,16 +20,25 @@ const ProductReview = () => {
         dispatch(fetchAllReviews(id))
     }, [dispatch])
 
-    // if (!currentArtProduct.ImageUrls){
-    //     return null
-    // }
+
     if(reviews.length===0) {
         return <h4>No reviews for this product. <NavLink to={`/reviews/${id}`}>Add one!</NavLink></h4>
     }
     return (
         
-        <div>
-            <div id='product-review'></div>
+        <div id='product-review'>
+            <div id='all-reviews-title'> Reviews for this product: </div>
+            {reviews && reviews.map(review => {
+                return (
+                <>
+                    <div id='individual-review'>
+                        {review.User.username} said: {review.review}
+                    </div>
+                </>
+
+                )
+            })}
+            <div id='review-bottom'>Bought this product and would like to leave a review? Add one <NavLink to={`/reviews/${id}`}>here!</NavLink> </div>
         </div>
     )
 };

@@ -3,17 +3,18 @@ import {useDispatch, useSelector} from 'react-redux';
 import {NavLink} from 'react-router-dom';
 import {createReview} from '../../store/artProductReviews';
 import {useParams} from "react-router-dom";
-import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 
 const AddProductReviewForm = () => {
    
     const params = useParams();
     const {id} = params;
+
+    let history = useHistory();
     
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => {
-        console.log('hdub', state)
         return state.session.user
     });
     
@@ -33,7 +34,7 @@ const AddProductReviewForm = () => {
       let artProductId = Number(id);
       let userId = Number(sessionUser.id)
 
-      return dispatch(createReview({artProductId, userId, review}))
+      return dispatch(createReview({artProductId, userId, review}), history.goBack())
         .catch(res => {
           if (res.data && res.data.errors) setErrors(res.data.errors);
         });

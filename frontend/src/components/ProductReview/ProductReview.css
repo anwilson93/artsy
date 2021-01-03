@@ -1,3 +1,22 @@
 #product-review {
   border: 1px solid black;
 }
+
+#individual-review {
+  border-bottom: 4px solid rgb(202, 226, 214);
+  font-size: 17px;
+  margin-top: 15px;
+  margin-left: 5px;
+  margin-right: 600px;
+}
+
+#all-reviews-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+#review-bottom {
+  margin-top: 10px;
+  text-align: center;
+}
