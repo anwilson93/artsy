@@ -13,12 +13,9 @@ const ViewProduct = () => {
 
     const dispatch = useDispatch()
     const currentArtProduct = useSelector(state => {
-        console.log('ii', state.artProducts.oneArtProduct)
         return state.artProducts.oneArtProduct;
     });
-    // const currentArtProductImg = useSelector(state => {
-    //     return state.artProducts.oneArtProduct.ImageUrls[0];
-    // });
+
    
 
     useEffect (() => {
@@ -38,9 +35,6 @@ const ViewProduct = () => {
      
     )
     
-    // return (
-    //     <h1>hi</h1>
-    // )
 }
 
 export default ViewProduct;

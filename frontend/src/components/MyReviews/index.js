@@ -2,16 +2,14 @@ import {useDispatch, useSelector} from 'react-redux';
 import {useEffect} from 'react';
 import {fetchAllUserReviews, deleteReview} from '../../store/artProductReviews.js';
 import {Link} from 'react-router-dom';
-import { useHistory } from 'react-router'
+
 
 const MyReviews = () => {
     const sessionUser = useSelector(state => state.session.user);
     const dispatch = useDispatch();
-    const { push } = useHistory();
+
 
     const myReviews = useSelector(state => {
-        console.log(state.artProductReviews.userReviews, 'reviewsssssss')
-        console.log(sessionUser.id)
         return state.artProductReviews.userReviews
     });
 
@@ -47,7 +45,6 @@ const MyReviews = () => {
                     <Link to={`/products/${review.artProductId}`} id='link'>{review.ArtProduct.title} Review
                     </Link>
                     <form>
-
                         <p>{review.User.username} said: {review.review}</p>
                         <button onClick={deleteReviewButton}>Delete This Review</button>
                     </form>
