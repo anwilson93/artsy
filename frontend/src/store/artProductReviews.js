@@ -39,6 +39,18 @@ export const fetchAllUserReviews = (userId) => {
     };
 };
 
+// DELETE A USER REVIEW
+export const deleteReview = (reviewId, userId) => async (dispatch) => {
+    const res = await fetch(`/api/reviews/${reviewId}`, {
+        method: 'DELETE',
+        body: JSON.stringify({
+            reviewId
+        })
+    });
+    dispatch(fetchAllUserReviews(userId))
+    return res
+};
+
 // CREATE REVIEW
 export const createReview = (artProductReview) => async (dispatch) => {
   const { artProductId, userId, review } = artProductReview;
