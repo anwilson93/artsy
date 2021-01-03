@@ -16,7 +16,6 @@ export const search = (search) => {
     const {searchTerm} = search
     return async (dispatch) => {
         const res = await fetch(`/api/products/${searchTerm}`)
-        console.log('searchhhhhhhhh', res.data.artProducts)
         dispatch(
             setSearchedArtProducts(res.data.artProducts)
         );

@@ -18,7 +18,6 @@ function HomePage () {
     });
 
     const searchedProducts = useSelector(state => {
-        console.log('thisssssssssssss', state.searchedProducts.searchedProducts)
         return state.searchedProducts.searchedProducts
     });
 
@@ -27,34 +26,34 @@ function HomePage () {
         dispatch(search)
     }, [dispatch])
 
-    console.log('trueeeeeee', dispatch(search))
+    
     if (searchedProducts.length>0){
 
     return (
         <div>
             <div id="jumbotron">
-                <Link to={``} id='link'>
+                <Link to={`/search/canvas`} id='link'>
                 <img style={{width: 200, height: 200, borderRadius: 200/ 2}}
                 key='canvas'
                 src={canvas} alt='' /> 
                 <div className='jumbotron-titles'>Canvas</div>
                 </Link>
 
-                <Link to={``} id='link'>
+                <Link to={`/search/painting`} id='link'>
                 <img style={{width: 200, height: 200, borderRadius: 200/ 2}}
                 key='painting'
                 src={painting} alt='' /> 
                 <div className='jumbotron-titles'>Painting</div>
                 </Link>
                 
-                <Link to={``} id='link'>
+                <Link to={`search/pottery`} id='link'>
                 <img style={{width: 200, height: 200, borderRadius: 200/ 2}}
                 key='pottery'
                 src={pottery} alt='' /> 
                 <div className='jumbotron-titles'>Pottery</div>
                 </Link>
 
-                <Link to={``} id='link'>
+                <Link to={`/search/photography`} id='link'>
                 <img style={{width: 200, height: 200, borderRadius: 200/ 2}}
                 key='photography'
                 src={photography} alt=''/> 
@@ -86,28 +85,28 @@ function HomePage () {
     return (
         <div>
             <div id="jumbotron">
-                <Link to={``} id='link'>
+                <Link to={`/search/canvas`} id='link'>
                 <img style={{width: 200, height: 200, borderRadius: 200/ 2}}
                 key='canvas'
                 src={canvas} alt='' /> 
                 <div className='jumbotron-titles'>Canvas</div>
                 </Link>
 
-                <Link to={``} id='link'>
+                <Link to={`search/painting`} id='link'>
                 <img style={{width: 200, height: 200, borderRadius: 200/ 2}}
                 key='painting'
                 src={painting} alt='' /> 
                 <div className='jumbotron-titles'>Painting</div>
                 </Link>
                 
-                <Link to={``} id='link'>
+                <Link to={`search/pottery`} id='link'>
                 <img style={{width: 200, height: 200, borderRadius: 200/ 2}}
                 key='pottery'
                 src={pottery} alt='' /> 
                 <div className='jumbotron-titles'>Pottery</div>
                 </Link>
 
-                <Link to={``} id='link'>
+                <Link to={`search/photography`} id='link'>
                 <img style={{width: 200, height: 200, borderRadius: 200/ 2}}
                 key='photography'
                 src={photography} alt=''/> 
@@ -133,6 +132,7 @@ function HomePage () {
                 )
             })}
             </div>
+            <h3>Search Results: None</h3>
         </div>
     )
         }

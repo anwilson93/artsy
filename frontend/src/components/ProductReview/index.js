@@ -11,7 +11,6 @@ const ProductReview = () => {
 
     const dispatch = useDispatch()
     const reviews = useSelector(state => {
-        console.log('ii', state.artProductReviews.artProductReviews)
         return state.artProductReviews.artProductReviews
     });
    

@@ -9,6 +9,7 @@ import HomePage from "./components/HomePage";
 import AddProduct from "./components/AddProduct";
 import ViewProduct from "./components/ViewProduct";
 import AddProductReviewForm from "./components/AddProductReviewForm";
+import SearchPage from "./components/SearchPage";
 
 
 function App() {
@@ -37,6 +38,9 @@ function App() {
           </Route>
           <Route path='/reviews/:id'>
             <AddProductReviewForm />
+          </Route>
+          <Route path='/search/:searchTerm'>
+            <SearchPage />
           </Route>
           <Route exact path='/'>
             <HomePage />
