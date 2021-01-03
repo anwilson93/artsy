@@ -25,28 +25,32 @@ function HomePage () {
         <div>
             <div id="jumbotron">
                 <img style={{width: 200, height: 200, borderRadius: 200/ 2}}
+                key='canvas'
                 src={canvas} alt='' />
                 <img style={{width: 200, height: 200, borderRadius: 200/ 2}}
+                key='painting'
                 src={painting} alt='' />
                 <img style={{width: 200, height: 200, borderRadius: 200/ 2}}
+                key='pottery'
                 src={pottery} alt='' />
                 <img style={{width: 200, height: 200, borderRadius: 200/ 2}}
+                key='photography'
                 src={photography} alt=''/>
             </div>
             {sessionUser && <h2>Welcome, {sessionUser.username}!</h2>}
-
+            <div className='product-listing'>
             {currentArtProductImgs && currentArtProductImgs.map(art => {
                 return (
-                <div className='product-listing'>
-                    <Link to={`/products/${art.artProductId}`}>
-                        <img style={{width: 200, height: 200}} src ={art.url} key={art.artProductId} alt='' />
-                    </Link>
-                    
-                    <div className='product-prices' key={art.ArtProduct}>Price: ${art.ArtProduct.price}</div>
-                </div>
-
+                    <>
+                        <Link to={`/products/${art.artProductId}`} id='link'>
+                            <img className='product-listing' style={{width: 200, height: 200}} src ={art.url} key={art.artProductId} alt='' /> 
+                            <div className='product-prices'>Title: {art.ArtProduct.title}</div>
+                            <div className='product-prices'> Price: ${art.ArtProduct.price}</div>
+                        </Link>
+                    </>
                 )
             })}
+            </div>
         </div>
     )
 

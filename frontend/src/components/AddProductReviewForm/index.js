@@ -45,21 +45,24 @@ const AddProductReviewForm = () => {
     
     return (
     <>
-      <h1>Leave a Review</h1>
+      <h1>Submit a Review</h1>
       <form onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>
         <label>
-          Review
-          <input
-            type="text"
+          <div>Leave a review here: </div>
+          <textarea
+            rows='5'
+            cols='33'
             value={review}
             onChange={(e) => setReview(e.target.value)}
             required
           />
         </label>
-        <button type="submit">Submit</button>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
       </form>
     </>
   );
