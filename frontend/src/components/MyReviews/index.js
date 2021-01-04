@@ -33,6 +33,7 @@ const MyReviews = () => {
 
     return (
         <>
+            <h3>All Reviews</h3>
             {myReviews && myReviews.map(review => {
                 const deleteReviewButton = (e) => {
                     e.preventDefault();
@@ -41,10 +42,10 @@ const MyReviews = () => {
                
             return (
                 <>
-                    <h3>All Reviews</h3>
+                    
                     <Link to={`/products/${review.artProductId}`} id='link'>{review.ArtProduct.title} Review
                     </Link>
-                    <form>
+                    <form style={{marginBottom: 50}}>
                         <p>{review.User.username} said: {review.review}</p>
                         <button onClick={deleteReviewButton}>Delete This Review</button>
                     </form>
