@@ -24,5 +24,4 @@ module.exports = {
   // "dialect": "postgres",
   // "seederStorage": "sequelize",
   // "use_env_variable": "DATABASE_URL"
-}
 };
