@@ -15,13 +15,10 @@ module.exports = {
     dialect: "postgres",
     seederStorage: "sequelize",
   },
-  // production: {
-  //   use_env_variable: "DATABASE_URL",
-  //   dialect: "postgres",
-  //   seederStorage: "sequelize",
-  // },
-  "production": {
-  "dialect": "postgres",
-  "seederStorage": "sequelize",
-  "use_env_variable": "DATABASE_URL"}
+  production: {
+    use_env_variable: "DATABASE_URL",
+    dialect: "postgres",
+    seederStorage: "sequelize",
+  },
+
 };
