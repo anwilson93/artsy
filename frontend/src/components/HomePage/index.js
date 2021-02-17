@@ -18,15 +18,29 @@ function HomePage () {
     });
 
     const searchedProducts = useSelector(state => {
+        console.log(state.searchedProducts.searchedProducts, 'yoooo')
         return state.searchedProducts.searchedProducts
+    });
+
+    const noResultsForSearchedProducts = useSelector(state => {
+        console.log(state.searchedProducts.noProducts)
+        return state.searchedProducts.noProducts
     });
 
 
     useEffect (() => {
         dispatch(fetchAllProducts())
-        dispatch(search)
+        // dispatch(search)
     }, [dispatch])
 
+    // if user searched for a product and there was no result, return h3
+    if (noResultsForSearchedProducts === true) {
+        return (
+            <h3>No products match the search </h3>
+        )
+
+
+    } else {
     
     if (searchedProducts.length>0){
 
@@ -133,10 +147,10 @@ function HomePage () {
                 )
             })}
             </div>
-            <h3>Search Results: None</h3>
         </div>
     )
         }
+    }
 }
 
 

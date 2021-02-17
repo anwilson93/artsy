@@ -5,7 +5,8 @@ import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
 import SearchBar from '../SearchBar';
-import {search} from '../../store/search.js';
+import {resetSearch} from '../../store/search.js';
+import {fetchAllProducts} from '../../store/artProducts';
 
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
@@ -26,7 +27,8 @@ function Navigation({ isLoaded }){
   }
 
   const returnHomeClearSearch = () => {
-      return dispatch(search(''))
+      // dispatch(search(''))
+      dispatch(resetSearch(false))
     }
 
   return (
