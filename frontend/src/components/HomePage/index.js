@@ -1,12 +1,13 @@
 import './HomePage.css';
-import canvas from './z-s-pCFw8nlNS9c-unsplash.jpg';
-import painting from './steve-johnson-5MTf9XyVVgM-unsplash.jpg';
-import pottery from './oshin-khandelwal-EQpXnijYejQ-unsplash.jpg';
-import photography from './nathan-dumlao-p4TKmK4Egvg-unsplash.jpg';
+// import canvas from './z-s-pCFw8nlNS9c-unsplash.jpg';
+// import painting from './steve-johnson-5MTf9XyVVgM-unsplash.jpg';
+// import pottery from './oshin-khandelwal-EQpXnijYejQ-unsplash.jpg';
+// import photography from './nathan-dumlao-p4TKmK4Egvg-unsplash.jpg';
 import {useEffect} from 'react';
 import {fetchAllProducts} from '../../store/artProducts';
 import {useDispatch, useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
+import HomePageJumbotron from '../HomePageJumbotron';
 import {search} from '../../store/search.js';
 
 function HomePage () {
@@ -33,12 +34,15 @@ function HomePage () {
         // dispatch(search)
     }, [dispatch])
 
-    // if user searched for a product and there was no result, return h3
+    // this allows user to receive feedback on homepage if they search for something
+    // and there are no results
     if (noResultsForSearchedProducts === true) {
         return (
-            <h3>No products match the search </h3>
+            <>
+                <HomePageJumbotron />
+                <h3>No products match the search </h3>
+            </>
         )
-
 
     } else {
     
@@ -46,36 +50,7 @@ function HomePage () {
 
     return (
         <div>
-            <div id="jumbotron">
-                <Link to={`/search/canvas`} id='link'>
-                <img style={{width: 200, height: 200, borderRadius: 200/ 2}}
-                key='canvas'
-                src={canvas} alt='' /> 
-                <div className='jumbotron-titles'>Canvas</div>
-                </Link>
-
-                <Link to={`/search/painting`} id='link'>
-                <img style={{width: 200, height: 200, borderRadius: 200/ 2}}
-                key='painting'
-                src={painting} alt='' /> 
-                <div className='jumbotron-titles'>Painting</div>
-                </Link>
-                
-                <Link to={`search/pottery`} id='link'>
-                <img style={{width: 200, height: 200, borderRadius: 200/ 2}}
-                key='pottery'
-                src={pottery} alt='' /> 
-                <div className='jumbotron-titles'>Pottery</div>
-                </Link>
-
-                <Link to={`/search/photography`} id='link'>
-                <img style={{width: 200, height: 200, borderRadius: 200/ 2}}
-                key='photography'
-                src={photography} alt=''/> 
-                <div className='jumbotron-titles'>Photography</div>
-                </Link>
-            </div>
-
+            <HomePageJumbotron />
 
             {sessionUser && <h2>Welcome, {sessionUser.username}!</h2>}
             <h3>Search Results:</h3>
@@ -99,35 +74,7 @@ function HomePage () {
 
     return (
         <div>
-            <div id="jumbotron">
-                <Link to={`/search/canvas`} id='link'>
-                <img style={{width: 200, height: 200, borderRadius: 200/ 2}}
-                key='canvas'
-                src={canvas} alt='' /> 
-                <div className='jumbotron-titles'>Canvas</div>
-                </Link>
-
-                <Link to={`search/painting`} id='link'>
-                <img style={{width: 200, height: 200, borderRadius: 200/ 2}}
-                key='painting'
-                src={painting} alt='' /> 
-                <div className='jumbotron-titles'>Painting</div>
-                </Link>
-                
-                <Link to={`search/pottery`} id='link'>
-                <img style={{width: 200, height: 200, borderRadius: 200/ 2}}
-                key='pottery'
-                src={pottery} alt='' /> 
-                <div className='jumbotron-titles'>Pottery</div>
-                </Link>
-
-                <Link to={`search/photography`} id='link'>
-                <img style={{width: 200, height: 200, borderRadius: 200/ 2}}
-                key='photography'
-                src={photography} alt=''/> 
-                <div className='jumbotron-titles'>Photography</div>
-                </Link>
-            </div>
+            <HomePageJumbotron />
 
 
             {sessionUser && <h2>Welcome, {sessionUser.username}!</h2>}

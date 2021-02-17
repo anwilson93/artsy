@@ -6,7 +6,7 @@ import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
 import SearchBar from '../SearchBar';
 import {resetSearch} from '../../store/search.js';
-import {fetchAllProducts} from '../../store/artProducts';
+
 
 function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
@@ -27,7 +27,8 @@ function Navigation({ isLoaded }){
   }
 
   const returnHomeClearSearch = () => {
-      // dispatch(search(''))
+      // resets the search to false once logo is clicked so user can see all
+      // product listings
       dispatch(resetSearch(false))
     }
 

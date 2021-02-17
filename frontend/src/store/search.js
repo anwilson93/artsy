@@ -26,23 +26,20 @@ export const search = (search) => {
       
         if (res.data.artProducts.length === 0) {
           dispatch(setSearchedArtProductsToNone(true))
-          // dispatch(fetchAllProducts())
         } else {
-           dispatch(
-            setSearchedArtProducts(res.data.artProducts)
-          )
-          dispatch(setSearchedArtProductsToNone(false))
+            dispatch(setSearchedArtProducts(res.data.artProducts))
+            dispatch(setSearchedArtProductsToNone(false))
         }
     };
 };
 
 export const resetSearch = (boolean) => {
 
+  // need to reset search once home button is clicked so that user will see
+  // all product listings
   return async (dispatch) => {
     dispatch(setSearchedArtProductsToNone(boolean))
-    dispatch(
-            setSearchedArtProducts([])
-          )
+    dispatch(setSearchedArtProducts([]))
   }
 }
 
