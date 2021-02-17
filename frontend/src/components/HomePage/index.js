@@ -1,14 +1,10 @@
 import './HomePage.css';
-// import canvas from './z-s-pCFw8nlNS9c-unsplash.jpg';
-// import painting from './steve-johnson-5MTf9XyVVgM-unsplash.jpg';
-// import pottery from './oshin-khandelwal-EQpXnijYejQ-unsplash.jpg';
-// import photography from './nathan-dumlao-p4TKmK4Egvg-unsplash.jpg';
 import {useEffect} from 'react';
 import {fetchAllProducts} from '../../store/artProducts';
 import {useDispatch, useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
 import HomePageJumbotron from '../HomePageJumbotron';
-import {search} from '../../store/search.js';
+// import {search} from '../../store/search.js';
 
 function HomePage () {
     const sessionUser = useSelector(state => state.session.user);
@@ -19,12 +15,10 @@ function HomePage () {
     });
 
     const searchedProducts = useSelector(state => {
-        console.log(state.searchedProducts.searchedProducts, 'yoooo')
         return state.searchedProducts.searchedProducts
     });
 
     const noResultsForSearchedProducts = useSelector(state => {
-        console.log(state.searchedProducts.noProducts)
         return state.searchedProducts.noProducts
     });
 
