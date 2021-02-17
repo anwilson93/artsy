@@ -14,7 +14,7 @@ function SearchBar (){
     if (searchTerm) {
       setErrors([]);
 
-      return dispatch(search({searchTerm}), setSearchTerm(''), <Redirect to='/'></Redirect> )
+      return dispatch(search({searchTerm}), setSearchTerm('') )
         .catch(res => {
           if (res.data && res.data.errors) setErrors(res.data.errors);
         });
