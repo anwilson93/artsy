@@ -1,7 +1,48 @@
 #search-bar {
-  margin-right: 15%;
-  width: 50rem;
-  background: "#F2F1F9";
+  width: 56rem;
   border: none;
   padding: 0.5rem;
+  background-color: rgb(233, 230, 230);
+  height: 50px;
+  font-size: 16px;
+  border-radius: 24px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  text-indent: 15px;
+}
+
+#search-bar:hover + .magnifying-glass {
+  border: 1px solid black;
+  border-left: none;
+}
+
+#search-bar:focus + .magnifying-glass {
+  background-color: rgb(240, 102, 31);
+}
+
+#search-bar:hover {
+  border: 1px solid black;
+  border-right: none;
+}
+
+#search-bar:focus {
+  border: 2px solid rgb(240, 102, 31);
+}
+
+.magnifying-glass {
+  height: 50px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 96px;
+  border-bottom-right-radius: 96px;
+  border: none;
+  padding-bottom: 12px;
+  padding-left: 15px;
+  transition: background-color 0.3s ease;
+  background-color: rgb(233, 230, 230);
+}
+
+.magnifying-glass:hover {
+  background-color: rgb(199, 197, 197);
+  cursor: pointer;
 }

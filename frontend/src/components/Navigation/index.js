@@ -6,6 +6,7 @@ import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
 import SearchBar from '../SearchBar';
 import {resetSearch} from '../../store/search.js';
+import ShoppingCart from '../ShoppingCart';
 
 
 function Navigation({ isLoaded }){
@@ -15,13 +16,14 @@ function Navigation({ isLoaded }){
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <ProfileButton user={sessionUser} />
+      <>
+        <ProfileButton user={sessionUser} />
+      </>
     );
   } else {
     sessionLinks = (
       <>
         <LoginFormModal />
-        <NavLink id='signup' to="/signup">Sign Up</NavLink>
       </>
     );
   }
@@ -41,6 +43,9 @@ function Navigation({ isLoaded }){
           <SearchBar />
         <li>
           {isLoaded && sessionLinks}
+        </li>
+        <li>
+          <ShoppingCart />
         </li>
       </ul>
     </>
