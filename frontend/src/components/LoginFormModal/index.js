@@ -9,7 +9,6 @@ import {Link} from 'react-router-dom';
 function LoginFormModal() {
   const [showModal, setShowModal] = useState(false);
 
-
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
