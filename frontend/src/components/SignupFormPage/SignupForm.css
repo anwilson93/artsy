@@ -1,0 +1,16 @@
+.register-form-container {
+  border: 1px solid black;
+  border-radius: 24px;
+  margin: 0 auto;
+  margin-top: 30px;
+  height: 600px;
+}
+
+.registration-form-title-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.registration-text {
+  font-size: 16px;
+}
