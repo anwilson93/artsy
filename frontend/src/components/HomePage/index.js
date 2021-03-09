@@ -10,6 +10,7 @@ function HomePage () {
     const sessionUser = useSelector(state => state.session.user);
 
     const dispatch = useDispatch()
+    
     const currentArtProductImgs = useSelector(state => {
         return state.artProducts.artProducts
     });

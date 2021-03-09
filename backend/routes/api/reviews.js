@@ -18,7 +18,7 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
 // CREATE REVIEW
 router.post('/:id(\\d+)', asyncHandler(async (req, res) => {
   const { artProductId, userId, review } = req.body;
-  console.log(req.body)
+  
   const newReview = await ArtProductReview.create({ artProductId, userId, review });
   await newReview.save();
   return res.json({ newReview });

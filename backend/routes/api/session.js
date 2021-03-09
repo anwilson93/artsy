@@ -4,7 +4,7 @@ const asyncHandler = require("express-async-handler");
 
 const { handleValidationErrors } = require("../../utils/validation");
 const { setTokenCookie, restoreUser } = require("../../utils/auth");
-const { User } = require("../../db/models");
+const { User, Order } = require("../../db/models");
 
 const router = express.Router();
 
@@ -36,10 +36,19 @@ router.post(
       return next(err);
     }
 
+    const cart = await Order.findOne({
+      where: {
+        userId: user.id
+      },
+      // TO STOP SEQUELIZE FROM RETURNING DATAVALUES OBJ
+      raw: true,
+    })
+   
     await setTokenCookie(res, user);
 
     return res.json({
       user,
+      cartId: cart.id,
     });
   }),
 );
@@ -57,14 +66,21 @@ router.delete(
 router.get(
   '/',
   restoreUser,
-  (req, res) => {
+  asyncHandler(async(req, res) => {
     const { user } = req;
     if (user) {
+      const cart = await Order.findOne({
+        where:{
+          userId: user.id
+        }
+      })
+
       return res.json({
-        user: user.toSafeObject()
+        user: user.toSafeObject(),
+        cartId: cart.id,
       });
     } else return res.json({});
   }
-);
+));
 
 module.exports = router;

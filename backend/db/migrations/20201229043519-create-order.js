@@ -8,10 +8,10 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      totalAmount: {
-        type: Sequelize.FLOAT(10, 2),
-        allowNull: false
-      },
+      // totalAmount: {
+      //   type: Sequelize.FLOAT(10, 2),
+      //   allowNull: false
+      // },
       userId: {
         type: Sequelize.INTEGER,
         references: { model: 'Users' },

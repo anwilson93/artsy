@@ -22,9 +22,7 @@ function LoginFormModal() {
   }
 
   const registration = () => {
-    setShowModal(false)
-    
-    
+    setShowModal(false)  
   }
 
   const handleSubmit = (e) => {
