@@ -5,11 +5,12 @@ import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
 import SearchBar from '../SearchBar';
-import {resetSearch} from '../../store/search.js';
+import {resetSearch, search} from '../../store/search.js';
 import ShoppingCart from '../ShoppingCart';
 
 
 function Navigation({ isLoaded }){
+  
   const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
@@ -26,6 +27,10 @@ function Navigation({ isLoaded }){
         <LoginFormModal />
       </>
     );
+  }
+
+  const linkSearch = (searchTerm) => {
+    return dispatch(search({searchTerm}))
   }
 
   const returnHomeClearSearch = () => {
@@ -50,12 +55,12 @@ function Navigation({ isLoaded }){
         </li>
       </ul>
       <div className='lower-navbar'>
-        <NavLink to={`/search/glass`} className='lower-navbar-item'>Glass Art</NavLink>
-        <NavLink to={`/search/pastel`} className='lower-navbar-item'>Pastel</NavLink>
-        <NavLink to={`/search/drawing`} className='lower-navbar-item'>Drawing & Illustration</NavLink>
-        <NavLink to={`/search/decor`} className='lower-navbar-item'>Decor</NavLink>
-        <NavLink to={`/search/portrait`} className='lower-navbar-item'>Portrait Art</NavLink>
-        <NavLink to={`/search/watercolor`} className='lower-navbar-item'>Watercolor</NavLink>
+        <div onClick={() => linkSearch('glass')} className='lower-navbar-item'>Glass Art</div>
+        <div onClick={() => linkSearch('pastel')} className='lower-navbar-item'>Pastel</div>
+        <div onClick={() => linkSearch('drawing')} className='lower-navbar-item'>Drawing & Illustration</div>
+        <div onClick={() => linkSearch('decor')} className='lower-navbar-item'>Decor</div>
+        <div onClick={() => linkSearch('portrait')} className='lower-navbar-item'>Portrait Art</div>
+        <div onClick={() => linkSearch('watercolor')} className='lower-navbar-item'>Watercolor</div>
       </div>
       </div>
     </>

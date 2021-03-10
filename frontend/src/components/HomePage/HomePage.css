@@ -77,3 +77,7 @@ img {
 .add-margin {
   margin-left: 40px;
 }
+
+.picture-search {
+  cursor: pointer;
+}

@@ -1,39 +1,47 @@
-import {Link} from 'react-router-dom';
+import {useDispatch } from 'react-redux';
+import {search} from '../../store/search.js';
 import canvas from './z-s-pCFw8nlNS9c-unsplash.jpg';
 import painting from './steve-johnson-5MTf9XyVVgM-unsplash.jpg';
 import pottery from './oshin-khandelwal-EQpXnijYejQ-unsplash.jpg';
 import photography from './nathan-dumlao-p4TKmK4Egvg-unsplash.jpg';
 function HomePageJumbotron () {
+
+    const dispatch = useDispatch();
+
+    const linkSearch = (searchTerm) => {
+        return dispatch(search({searchTerm}))
+    }
+
     return (
         <div>
             <div id="jumbotron">
-                <Link to={`/search/canvas`} id='link'>
-                <img style={{width: 200, height: 200, borderRadius: 200/ 2}}
-                key='canvas'
-                src={canvas} alt='' /> 
-                <div className='jumbotron-titles'>Canvas</div>
-                </Link>
+                <div onClick={() => linkSearch('canvas')} className='picture-search'>
+                    <img style={{width: 200, height: 200, borderRadius: 200/ 2}}
+                        key='canvas'
+                        src={canvas} alt='' /> 
+                    <div className='jumbotron-titles'>Canvas</div>
+                </div>
 
-                <Link to={`/search/painting`} id='link'>
-                <img style={{width: 200, height: 200, borderRadius: 200/ 2}}
-                key='painting'
-                src={painting} alt='' /> 
-                <div className='jumbotron-titles'>Painting</div>
-                </Link>
+                <div onClick={() => linkSearch('painting')} className='picture-search'>
+                    <img style={{width: 200, height: 200, borderRadius: 200/ 2}}
+                        key='painting'
+                        src={painting} alt='' /> 
+                    <div className='jumbotron-titles'>Painting</div>
+                </div>
                 
-                <Link to={`search/pottery`} id='link'>
-                <img style={{width: 200, height: 200, borderRadius: 200/ 2}}
-                key='pottery'
-                src={pottery} alt='' /> 
-                <div className='jumbotron-titles'>Pottery</div>
-                </Link>
+                <div onClick={() => linkSearch('pottery')} className='picture-search'>
+                    <img style={{width: 200, height: 200, borderRadius: 200/ 2}}
+                        key='pottery'
+                        src={pottery} alt='' /> 
+                    <div className='jumbotron-titles'>Pottery</div>
+                </div>
 
-                <Link to={`/search/photography`} id='link'>
-                <img style={{width: 200, height: 200, borderRadius: 200/ 2}}
-                key='photography'
-                src={photography} alt=''/> 
-                <div className='jumbotron-titles'>Photography</div>
-                </Link>
+                <div onClick={() => linkSearch('photography')} className='picture-search'>
+                    <img style={{width: 200, height: 200, borderRadius: 200/ 2}}
+                        key='photography'
+                        src={photography} alt=''/> 
+                    <div className='jumbotron-titles'>Photography</div>
+                </div>
             </div>
         </div>
     )

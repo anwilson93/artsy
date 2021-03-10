@@ -35,7 +35,7 @@ function HomePage () {
         return (
             <>
                 <HomePageJumbotron />
-                <h3>No products match the search </h3>
+                <h3 className='add-margin'>No products match the search </h3>
             </>
         )
 
@@ -63,7 +63,7 @@ function HomePage () {
                         </div> */}
                         <div className='individual-product-container'>
                             <Link to={`/products/${product.id}`} id='link'>
-                                <img className='product-listing' style={{width: 250, height: 250}} src ={product.ImageUrls[0].url} key={product.id} alt='' /> 
+                                <img className='product-listing' style={{width: 250, height: 220}} src ={product.ImageUrls[0].url} key={product.id} alt='' /> 
                                 <span class="description">
                                     <div className='product-prices'>
                                         Title: {product.title}
