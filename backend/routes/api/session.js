@@ -36,7 +36,7 @@ router.post(
       return next(err);
     }
 
-    const cart = await Order.findOrCreate({
+    const cart = await Order.findOne({
       where: {
         userId: user.id
       },
@@ -44,6 +44,7 @@ router.post(
       raw: true,
     })
    
+
     await setTokenCookie(res, user);
 
     return res.json({
