@@ -36,6 +36,7 @@ function Navigation({ isLoaded }){
 
   return (
     <>
+      <div className='navbar-container'>
       <ul id='top-nav-bar'>
         <li>
           <NavLink id='nav-bar-logo' exact to="/" onClick={returnHomeClearSearch} >Artsy</NavLink>
@@ -48,6 +49,15 @@ function Navigation({ isLoaded }){
           <ShoppingCart />
         </li>
       </ul>
+      <div className='lower-navbar'>
+        <NavLink to={`/search/glass`} className='lower-navbar-item'>Glass Art</NavLink>
+        <NavLink to={`/search/pastel`} className='lower-navbar-item'>Pastel</NavLink>
+        <NavLink to={`/search/drawing`} className='lower-navbar-item'>Drawing & Illustration</NavLink>
+        <NavLink to={`/search/decor`} className='lower-navbar-item'>Decor</NavLink>
+        <NavLink to={`/search/portrait`} className='lower-navbar-item'>Portrait Art</NavLink>
+        <NavLink to={`/search/watercolor`} className='lower-navbar-item'>Watercolor</NavLink>
+      </div>
+      </div>
     </>
   );
 }

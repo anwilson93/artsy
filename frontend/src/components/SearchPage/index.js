@@ -23,7 +23,9 @@ const SearchPage = () => {
         )
     } else {
         return (
-             <div className='product-listing'>
+            <>
+                <p className='add-margin'> {searchedProducts.length} results</p>
+                <div className='product-listing'>
                 {searchedProducts && searchedProducts.map(product => {
                 return (
                     <>
@@ -49,6 +51,7 @@ const SearchPage = () => {
                 )
             })}
             </div>
+            </>
         )
     }
 }

@@ -1,10 +1,10 @@
-.profile-dropdown {
+/* .profile-dropdown {
   position: absolute;
   right: 0;
-}
+} */
 
-#profile-button {
-  margin-right: 10px;
+.navbar-container {
+  border-bottom: 2px solid rgba(34, 34, 34, 0.15);
 }
 
 #top-nav-bar {
@@ -17,6 +17,58 @@
   justify-content: space-evenly;
   list-style-type: none;
   margin-left: -40px;
+}
+
+.lower-navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  /* list-style-type: none; */
+  margin-left: -40px;
+  font-size: 13px;
+  height: 20px;
+  padding-bottom: 5px;
+}
+
+.lower-navbar-item {
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
+  height: 30px;
+  border-radius: 6px;
+  padding: 6px;
+}
+
+.lower-navbar-item:hover {
+  background-color: rgb(250, 160, 119);
+}
+
+#profile-button {
+  /* margin-right: 10px; */
+  font-size: 18px;
+  background-color: rgb(219, 218, 218);
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.profile-button-background {
+  background-color: white;
+  height: 50px;
+  width: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 19px;
+  cursor: pointer;
+  transition: background-color 0.4s ease;
+}
+
+.profile-button-background:hover {
+  background-color: rgb(199, 197, 197);
 }
 
 #nav-bar-logo {
@@ -47,4 +99,62 @@
   border-radius: 24px;
   text-align: center;
   cursor: pointer;
+}
+
+.user-manager-container {
+  /* background-color: white;
+  list-style: none;
+  position: absolute;
+  height: 227px;
+  width: 200px;
+  right: 130px;
+  top: 90px; */
+
+  background: #fff;
+  border-radius: 12px;
+  border: 1px rgba(34, 34, 34, 0.15) solid;
+  box-shadow: 0 4px 20px rgba(34, 34, 34, 0.15);
+  min-width: 160px;
+  max-width: 300px;
+  overflow: hidden;
+  font-size: 16px;
+  max-height: 480px;
+  position: absolute;
+  right: 130px;
+  top: 80px;
+}
+
+.profile-dropdown {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 150px;
+}
+
+.dropdown-item {
+  height: 40px;
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown-button {
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+
+.dropdown-item-hover:hover {
+  background-color: rgb(199, 197, 197);
+  cursor: pointer;
+}
+
+.dropdown-item-username {
+  font-weight: bold;
+  border-bottom: rgb(240, 102, 31) 1px solid;
 }

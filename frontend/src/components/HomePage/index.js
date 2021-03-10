@@ -47,8 +47,8 @@ function HomePage () {
         <div>
             <HomePageJumbotron />
 
-            {sessionUser && <h2 className='add-margin'>Welcome, {sessionUser.username}!</h2>}
-            <h3>Search Results:</h3>
+            <p className='add-margin'> {searchedProducts.length} results</p>
+            {/* <p className='add-margin' style={{padding: 10, fontSize: 15}}>Search Results:</p> */}
             <div className='product-listing'>
                 {searchedProducts && searchedProducts.map(product => {
                 return (

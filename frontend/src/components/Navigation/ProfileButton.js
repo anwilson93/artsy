@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { fetchAllUserReviews } from "../../store/artProductReviews";
 import * as sessionActions from '../../store/session';
 import { useHistory } from 'react-router'
+import './Navigation.css';
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -38,20 +39,23 @@ function ProfileButton({ user }) {
 
   return (
     <>
+      <div className='profile-button-background'>
       <button onClick={openMenu} id='profile-button'>
-        <i className="fas fa-user-circle" />
+          <i class="fas fa-user"></i>
       </button>
+      </div>
       {showMenu && (
-        <ul className="profile-dropdown">
-          <li>{user.username}</li>
-          <li>{user.email}</li>
-          <li>
-            <button onClick={goToReviews} onClick={() => push('/myreviews')}>My Reviews</button>
-          </li>
-          <li>
-            <button onClick={logout}>Log Out</button>
-          </li>
-        </ul>
+        <div className='user-manager-container'>
+          <div className="profile-dropdown">
+            <div className='dropdown-item dropdown-item-username'>{user.username}</div>
+            <div className='dropdown-item dropdown-item-hover'>
+              <button className='dropdown-button' onClick={goToReviews} onClick={() => push('/myreviews')}>My Reviews</button>
+            </div>
+            <div className='dropdown-item dropdown-item-hover'>
+              <button className='dropdown-button' onClick={logout}>Log Out</button>
+            </div>
+          </div>
+        </div>
       )}
     </>
   );
