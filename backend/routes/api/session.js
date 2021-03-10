@@ -36,7 +36,7 @@ router.post(
       return next(err);
     }
 
-    const cart = await Order.findOne({
+    const cart = await Order.findOrCreate({
       where: {
         userId: user.id
       },
