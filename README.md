@@ -3,7 +3,7 @@
 <br />
 
   <p align="center">
-    <b>Artsy</b> - Artsy is an e-commerce site, inspired by Etsy, that focuses on art. Users can interact with the site by viewing art products, leaving reviews, and searching for products.
+    <b>Artsy</b> - Artsy is an e-commerce site, inspired by Etsy, that focuses on art. Users can interact with the site by viewing art products, leaving reviews, adding or removing items to their cart, and searching for products.
     <br />
     <br />
     <a href="https://github.com/anwilson93/artsy/wiki"><strong>Wiki docs »</strong></a>
@@ -35,14 +35,14 @@
 
 ### Project Description
 
-Artsy is a Full-Stack Web Application that features a React/Redux frontend and an Express.js backend that serves all database and api routes. It is an e-commerce site, inspired by Etsy, that focuses on art. Users can interact with the site by viewing art products, leaving reviews, and searching for products.
+Artsy is a Full-Stack Web Application that features a React/Redux frontend and an Express.js backend that serves all database and api routes. It is an e-commerce site, inspired by Etsy, that focuses on art. Users can interact with the site by viewing art products, leaving reviews, adding or removing items to their cart, and searching for products.
 
 <br />
 <details open="open">
    <summary>Screenshots</summary>
    <div style="display: flex">
-      <!-- <img src="./screenshots/landing.png" width="31%" height="30%" style="margin: 5px"/>
-      <img src="./screenshots/feed.png" width="31%" height="30%"  style="margin: 5px"/> -->
+      <img src="./screenshots/artsy-screenshot.png" width="100%" height="100%" style="margin: 5px"/>
+      <img src="./screenshots/artsy-search.gif" width="100%" height="100%"  style="margin: 5px"/>
    <div>
 </details>
 <br />
