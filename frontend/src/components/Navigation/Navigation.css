@@ -16,6 +16,7 @@
   align-items: center;
   justify-content: space-evenly;
   list-style-type: none;
+  margin-left: -40px;
 }
 
 #nav-bar-logo {

@@ -27,11 +27,24 @@ const SearchPage = () => {
                 {searchedProducts && searchedProducts.map(product => {
                 return (
                     <>
-                        <Link to={`/products/${product.id}`} id='link'>
+                        {/* <Link to={`/products/${product.id}`} id='link'>
                             <img className='product-listing' style={{width: 200, height: 200}} src ={product.ImageUrls[0].url} key={product.id} alt='' /> 
                             <div className='product-prices'>Title: {product.title}</div>
                             <div className='product-prices'> Price: ${product.price}</div>
-                        </Link>
+                        </Link> */}
+                        <div className='individual-product-container'>
+                            <Link to={`/products/${product.id}`} id='link'>
+                                <img className='product-listing' style={{width: 250, height: 250}} src ={product.ImageUrls[0].url} key={product.id} alt='' /> 
+                                <span class="description">
+                                    <div className='product-prices'>
+                                        Title: {product.title}
+                                    </div>
+                                    <div className='product-prices'>
+                                        Price: ${product.price}
+                                    </div>
+                                </span>
+                            </Link>
+                        </div>
                     </>
                 )
             })}
