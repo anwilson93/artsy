@@ -21,17 +21,23 @@ const ProductReview = () => {
 
 
     if(reviews.length===0) {
-        return <h4>No reviews for this product. <NavLink to={`/reviews/${id}`}>Add one!</NavLink></h4>
+        return <h4 className='add-margin'>No reviews for this product. <NavLink to={`/reviews/${id}`}>Add one!</NavLink></h4>
     }
     return (
         
         <div id='product-review'>
-            <div id='all-reviews-title'> Reviews for this product: </div>
+            <div id='all-reviews-title'> {reviews.length} product reviews </div>
             {reviews && reviews.map(review => {
+                let reviewDate = new Date(review.createdAt).toString().slice(0, 16)
                 return (
                 <>
-                    <div id='individual-review'>
-                        {review.User.username} said: {review.review}
+                    <div id='individual-review-container'>
+                        <div className='reviewer-username'>
+                            <span style={{borderBottom: '1px solid black', marginRight: 8}}>{review.User.username}</span> {reviewDate} 
+                        </div>
+                        <div className='review-content'>
+                            {review.review}
+                        </div>
                     </div>
                 </>
 

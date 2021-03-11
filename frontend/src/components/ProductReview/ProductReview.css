@@ -1,20 +1,29 @@
 #product-review {
-  border-top: 1px solid black;
-  margin-top: 10px;
-}
-
-#individual-review {
-  border-bottom: 4px solid rgb(202, 226, 214);
-  font-size: 17px;
-  margin-top: 15px;
-  margin-left: 5px;
-  margin-right: 600px;
+  margin-top: 20px;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 #all-reviews-title {
-  text-align: center;
-  font-weight: bold;
-  font-size: 25px;
+  text-align: start;
+  font-size: 26px;
+  border-bottom: 2px solid rgb(233, 230, 230);
+}
+
+#individual-review-container {
+  margin-top: 15px;
+  max-width: 880px;
+}
+
+.reviewer-username {
+  font-size: 13px;
+}
+
+.review-content {
+  font-size: 16px;
+  padding: 20px;
+  max-width: 880px;
+  word-wrap: break-word;
 }
 
 #review-bottom {

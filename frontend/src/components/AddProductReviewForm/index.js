@@ -4,6 +4,7 @@ import {NavLink} from 'react-router-dom';
 import {createReview} from '../../store/artProductReviews';
 import {useParams} from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import HomePageJumbotron from '../HomePageJumbotron';
 
 
 const AddProductReviewForm = () => {
@@ -23,7 +24,12 @@ const AddProductReviewForm = () => {
   
 
     if(!sessionUser){
-        return <h3>Please <NavLink to={`/login`}>Log In</NavLink> or <NavLink to={`/signup`}>Sign Up</NavLink> to add a review!</h3>
+        return (
+          <>
+            <HomePageJumbotron />
+            <h3 className='add-margin' style={{marginTop: 30}}>Please Log In or <NavLink to={`/signup`}>Sign Up</NavLink> to add a review!</h3>
+          </>
+        )
     }
 
 
@@ -45,25 +51,30 @@ const AddProductReviewForm = () => {
     
     return (
     <>
-      <h1>Submit a Review</h1>
-      <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-        </ul>
-        <label>
-          <div>Leave a review here: </div>
-          <textarea
-            rows='5'
-            cols='33'
-            value={review}
-            onChange={(e) => setReview(e.target.value)}
-            required
-          />
-        </label>
-        <div>
-            <button type="submit">Submit</button>
-        </div>
-      </form>
+      <HomePageJumbotron />
+      <div className='login-form-container register-form-container'>
+        <div className='login-form-contents'>
+          <div className='registration-form-title-header'>
+            <h2 id='login-form-title'>Leave a Review</h2>
+          </div>
+          <form onSubmit={handleSubmit}>
+            <ul>
+              {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+            </ul>
+            <div className='login-form-inputs-container'>
+            <label className='login-form-label'>Your Review:</label>
+            <textarea
+              rows='5'
+              cols='33'
+              value={review}
+              onChange={(e) => setReview(e.target.value)}
+              required
+            />
+            <button type="submit" className='login-form-submit-button'>Submit!</button>
+          </div>
+        </form>
+      </div>
+    </div>
     </>
   );
 }

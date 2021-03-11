@@ -3,8 +3,13 @@
 }
 
 .product-info {
-  border-left: 1px black solid;
-  border-right: 1px black solid;
+  /* border-left: 1px black solid;
+  border-right: 1px black solid; */
+  background: #fff;
+  border-radius: 12px;
+  border: 1px rgba(34, 34, 34, 0.15) solid;
+  box-shadow: 0 4px 20px rgba(34, 34, 34, 0.15);
+
   /* position: absolute; */
   float: right;
   margin-top: 50px;
