@@ -36,7 +36,7 @@ function Navigation({ isLoaded }){
   });
 
   const homepageCheck = () => {
-    if(document.location.pathname !== "/" && searchedProducts){
+    if(document.location.pathname !== "/" && searchedProducts.length>0){
       history.push('/')
     }   
   }

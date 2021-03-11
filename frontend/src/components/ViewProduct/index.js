@@ -2,25 +2,27 @@ import {useParams} from "react-router-dom";
 import {useEffect} from 'react';
 import {fetchOneProduct} from '../../store/artProducts';
 import {useDispatch, useSelector} from 'react-redux';
+import {clearSearch} from '../../store/search.js';
 import AddToCart from "./AddToCart";
 import ProductReview from "../ProductReview";
 
 const ViewProduct = () => {
   
     const params = useParams();
+    const dispatch = useDispatch()
     const {id} = params;
     
+    
+    useEffect (() => {
+        dispatch(fetchOneProduct(id))
+        dispatch(clearSearch())
+    }, [dispatch])
 
-    const dispatch = useDispatch()
     const currentArtProduct = useSelector(state => {
         return state.artProducts.oneArtProduct;
     });
 
-   
 
-    useEffect (() => {
-        dispatch(fetchOneProduct(id))
-    }, [dispatch])
 
     if (!currentArtProduct.ImageUrls){
         return null

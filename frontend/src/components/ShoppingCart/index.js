@@ -24,7 +24,7 @@ function ShoppingCart(){
     return state.cart.cart
   });
 
-  if(!cartItems){
+  if(!cartItems || !sessionUser){
     return (
       <>
         <NavLink id='nav-bar-logo' exact to="/cart" >

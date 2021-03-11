@@ -26,8 +26,10 @@ function ViewShoppingCart(){
         return state.cart.cart
     });
 
+    const sessionUser = useSelector(state => state.session.user);
 
-    if(!products){
+
+    if(!products || !sessionUser){
         return (
             <div className='shopping-cart-heading-container'>
                 <h1 className='add-margin shopping-cart-heading'> 0 items in your cart </h1>

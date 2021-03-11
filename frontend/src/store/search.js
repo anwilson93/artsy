@@ -43,6 +43,13 @@ export const resetSearch = (boolean) => {
   }
 }
 
+export const clearSearch = () => {
+
+  return async (dispatch) => {
+    dispatch(setSearchedArtProducts([]))
+  }
+}
+
 
 function reducer(state = initialState, action) {
   let newState;
