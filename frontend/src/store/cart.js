@@ -37,7 +37,7 @@ export const addProductToCart = (body) => async(dispatch) => {
             quantity
         })
     })
-    dispatch(setAddProductToCart(res.data.productInCart))
+    dispatch(setAddProductToCart(res.data.productsInCart))
 }
 
 
@@ -64,7 +64,7 @@ export const getAllCartProducts = (orderId) => {
 const reducer = (state={}, action) => {
     switch(action.type){
         case ADD_TO_CART:
-            return {...state,  [action.payload.id]: action.payload};
+            return {...state,  ['cart']: action.payload};
         case RETRIEVE_CART_PRODUCTS:
             return {...state,  ['cart']: action.payload};
         default:

@@ -8,8 +8,15 @@ router.post('/', asyncHandler(async(req, res) => {
 
     const {orderId, artProductId, artProductTitle, artProductPrice, quantity} = req.body
     const productInCart = await OrderDetail.create({orderId, artProductId, artProductTitle, artProductPrice, quantity});
-    
-    res.json({productInCart})
+    const productsInCart = await OrderDetail.findAll({
+        where: {orderId},
+        include: [
+            {model: ArtProduct, 
+                include: [{model: ImageUrl}]
+            }
+        ]
+    })
+    res.json({productsInCart})
 }));
 
 

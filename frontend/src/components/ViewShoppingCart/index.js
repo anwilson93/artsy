@@ -1,6 +1,6 @@
 import { useSelector, useDispatch} from "react-redux";
 import {useEffect} from 'react';
-import {Link, useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import {getAllCartProducts, removeProductFromCart} from "../../store/cart";
 import './ViewShoppingCart.css';
 
@@ -18,9 +18,9 @@ function ViewShoppingCart(){
         dispatch(removeProductFromCart(orderDetailId, orderId));
     }
 
-    useEffect (() => {
-        dispatch(getAllCartProducts(orderId))
-    }, [dispatch])
+    // useEffect (() => {
+    //     dispatch(getAllCartProducts(orderId))
+    // }, [dispatch])
 
     let products = useSelector(state => {
         return state.cart.cart
@@ -31,7 +31,8 @@ function ViewShoppingCart(){
         return (
             <div className='shopping-cart-heading-container'>
                 <h1 className='add-margin shopping-cart-heading'> 0 items in your cart </h1>
-                <button id='keep-shopping-button'><Link to='/' style={{textDecoration: 'none', color: 'black'}}> Keep shopping</Link></button>
+                {/* <button id='keep-shopping-button'><Link to='/' style={{textDecoration: 'none', color: 'black'}}> Keep shopping</Link></button> */}
+                <button id='keep-shopping-button' onClick={() => history.push(`/`)}>Keep shopping</button>
             </div>
         )
     } else {
@@ -41,7 +42,8 @@ function ViewShoppingCart(){
             <div className='shopping-cart-container'>
                 <div className='shopping-cart-heading-container'>
                     <h1 className='add-margin shopping-cart-heading'> {products.length} item(s) in your cart </h1>
-                    <button id='keep-shopping-button'><Link to='/' style={{textDecoration: 'none', color: 'black'}}> Keep shopping</Link></button>
+                    {/* <button id='keep-shopping-button'><Link to='/' style={{textDecoration: 'none', color: 'black'}}> Keep shopping</Link></button> */}
+                    <button id='keep-shopping-button' onClick={() => history.push(`/`)}>Keep shopping</button>
                 </div>
                 {products && products.map(product => {
                     let currentImage = product.ArtProduct.ImageUrls[0]

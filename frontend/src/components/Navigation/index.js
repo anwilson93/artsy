@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
@@ -13,6 +13,7 @@ function Navigation({ isLoaded }){
   
   const sessionUser = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  let history = useHistory();
 
   let sessionLinks;
   if (sessionUser) {
@@ -29,6 +30,20 @@ function Navigation({ isLoaded }){
     );
   }
 
+  // THIS ALLOWS USER TO SEARCH FOR PRODUCTS ON DIFFERENT PAGES OTHER THAN HOMEPAGE
+  let searchedProducts = useSelector(state => {
+    return state.searchedProducts.searchedProducts
+  });
+
+  const homepageCheck = () => {
+    if(document.location.pathname !== "/" && searchedProducts){
+      history.push('/')
+    }   
+  }
+
+  homepageCheck();
+
+
   const linkSearch = (searchTerm) => {
     return dispatch(search({searchTerm}))
   }
@@ -37,7 +52,7 @@ function Navigation({ isLoaded }){
       // resets the search to false once logo is clicked so user can see all
       // product listings
       dispatch(resetSearch(false))
-    }
+  }
 
   return (
     <>

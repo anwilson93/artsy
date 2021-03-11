@@ -3,6 +3,7 @@ import {useEffect} from 'react';
 import {fetchAllProducts} from '../../store/artProducts';
 import {useDispatch, useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
+import {getAllCartProducts} from "../../store/cart";
 import HomePageJumbotron from '../HomePageJumbotron';
 // import {search} from '../../store/search.js';
 
@@ -23,11 +24,23 @@ function HomePage () {
         return state.searchedProducts.noProducts
     });
 
+    const orderId = useSelector(state => {
+        return state.session.cartId
+    });
+
 
     useEffect (() => {
         dispatch(fetchAllProducts())
-        // dispatch(search)
+        dispatch(getAllCartProducts(orderId))
     }, [dispatch])
+
+    // const orderId = useSelector(state => {
+    //     return state.session.cartId
+    // });
+
+    // useEffect (() => {
+    //     dispatch(getAllCartProducts(orderId))
+    // }, [dispatch])
 
     // this allows user to receive feedback on homepage if they search for something
     // and there are no results
