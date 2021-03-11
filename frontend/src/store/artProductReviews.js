@@ -22,7 +22,7 @@ const setUserReviews = (reviews) => ({
 export const fetchAllReviews = (id) => {
     return async (dispatch) => {
         const res = await fetch(`/api/reviews/${id}`)
-        console.log('reviewssssss', res.data.artProductReviews)
+     
         dispatch(
             setArtProductReviews(res.data.artProductReviews)
         );

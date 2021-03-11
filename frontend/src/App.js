@@ -11,6 +11,7 @@ import ViewProduct from "./components/ViewProduct";
 import AddProductReviewForm from "./components/AddProductReviewForm";
 import SearchPage from "./components/SearchPage";
 import MyReviews from "./components/MyReviews";
+import ViewShoppingCart from "./components/ViewShoppingCart";
 
 
 function App() {
@@ -48,6 +49,9 @@ function App() {
           </Route>
           <Route exact path='/'>
             <HomePage />
+          </Route>
+          <Route exact path='/cart'>
+            <ViewShoppingCart />
           </Route>
         </Switch>
       )}

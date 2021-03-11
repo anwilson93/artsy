@@ -2,19 +2,25 @@ import {fetch} from './csrf.js';
 
 const ADD_TO_CART = '/ADD_TO_CART';
 
-const REMOVE_FROM_CART = '/REMOVE_FROM_CART';
+const RETRIEVE_CART_PRODUCTS = '/RETRIEVE_CART_PRODUCTS';
+
+const GET_IMAGES = '/GET_IMAGES';
+
 
 const setAddProductToCart = (product) => ({
   type: ADD_TO_CART,
   payload: product
 });
 
-const removeFromCart = (id) => {
-    return{
-        type: REMOVE_FROM_CART,
-        payload: id
-    }
-}
+const setAllProductsInCart = (products) => ({
+  type: RETRIEVE_CART_PRODUCTS,
+  payload: products
+});
+
+// const setAllImages = (images) => ({
+//   type: GET_IMAGES,
+//   payload: images
+// });
 
 
 export const addProductToCart = (body) => async(dispatch) => {
@@ -35,23 +41,32 @@ export const addProductToCart = (body) => async(dispatch) => {
 }
 
 
-export const removeItemFromCart = (id) => async(dispatch) => {
-    await fetch(`/api/cart/${id}`, {
+export const removeProductFromCart = (orderDetailId, orderId) => async(dispatch) => {
+    await fetch(`/api/cart/${orderDetailId}`, {
         method: 'DELETE'
-
     })
-    dispatch(removeFromCart(id))
+    dispatch(getAllCartProducts(orderId))
 }
+
+
+export const getAllCartProducts = (orderId) => {
+    return async (dispatch) => {
+        const res = await fetch(`/api/cart/${orderId}`)
+     
+        dispatch(
+            setAllProductsInCart(res.data.productsInCart)
+        );
+    };
+};
+
 
 
 const reducer = (state={}, action) => {
     switch(action.type){
         case ADD_TO_CART:
-            return {...state, [action.payload.id]: action.payload};
-        case REMOVE_FROM_CART:
-            const newState = {...state}
-            delete newState[action.payload]
-            return newState;
+            return {...state,  [action.payload.id]: action.payload};
+        case RETRIEVE_CART_PRODUCTS:
+            return {...state,  ['cart']: action.payload};
         default:
             return state;
     }
