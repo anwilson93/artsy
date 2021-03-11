@@ -30,6 +30,8 @@
 #product-description {
   font-size: 17px;
   margin-top: 20px;
+  word-wrap: break-word;
+  padding: 20px;
 }
 
 #product-price-container {

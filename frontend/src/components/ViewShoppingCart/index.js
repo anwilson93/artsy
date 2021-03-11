@@ -2,6 +2,7 @@ import { useSelector, useDispatch} from "react-redux";
 import {useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
 import {getAllCartProducts, removeProductFromCart} from "../../store/cart";
+import {fetchOneProduct} from '../../store/artProducts';
 import './ViewShoppingCart.css';
 
 
@@ -27,7 +28,14 @@ function ViewShoppingCart(){
     });
 
     const sessionUser = useSelector(state => state.session.user);
-    let total = 0
+    let total = 0;
+
+    const getProduct = (id) => {
+        dispatch(fetchOneProduct(id)).then(() => {
+            history.push(`/products/${id}`)
+        })
+        
+    }
 
 
     if(!products || !sessionUser){
@@ -62,11 +70,11 @@ function ViewShoppingCart(){
                     return (
                         <>
                             <div className='individual-cart-product-container'>
-                                <div className='div-for-image' onClick={() => history.push(`/products/${product.artProductId}`)}>
+                                <div className='div-for-image' onClick={() => getProduct(product.artProductId)}>
                                     
                                     <img className="images" src={currentImage.url} alt={product.artProductTitle} />
                                 </div>
-                                <div className='div-for-title' onClick={() => history.push(`/products/${product.artProductId}`)}>
+                                <div className='div-for-title' onClick={() => getProduct(product.artProductId)}>
                                     {product.artProductTitle}
                                 </div>
                                 <div className='div-for-price'>
