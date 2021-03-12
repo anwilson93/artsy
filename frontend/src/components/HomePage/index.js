@@ -26,14 +26,14 @@ function HomePage () {
         return state.searchedProducts.noProducts
     });
 
-    const orderId = useSelector(state => {
-        return state.session.cartId
-    });
+    // const orderId = useSelector(state => {
+    //     return state.session.cartId
+    // });
 
 
     useEffect (() => {
         dispatch(fetchAllProducts())
-        dispatch(getAllCartProducts(orderId))
+        // dispatch(getAllCartProducts(orderId))
     }, [dispatch])
 
     const getProduct = (id) => {
