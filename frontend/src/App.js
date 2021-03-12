@@ -34,7 +34,7 @@ function App() {
           </Route>
           <Route path='/test'>
             <AddProduct />
-          </Route>
+          </Route> 
           <Route path='/products/:id'>
             <ViewProduct />
           </Route>

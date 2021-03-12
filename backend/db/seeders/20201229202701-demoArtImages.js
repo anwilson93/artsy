@@ -15,103 +15,103 @@ module.exports = {
       return queryInterface.bulkInsert('ImageUrls', [
         {
           artProductId: 1,
-          url: 'https://artsysoloproject.s3.amazonaws.com/1609309086841.jpg'
+          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615512993805.jpg'
         },
         {
           artProductId: 2,
-          url: 'https://artsysoloproject.s3.amazonaws.com/1609345376668.jpg'
+          url: 'https://artsysoloproject.s3.amazonaws.com/1615513532721.jpg'
         },
         {
           artProductId: 4,
-          url: 'https://artsysoloproject.s3.amazonaws.com/1615340966532.jpg'
+          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615514905446.jpg'
         },
         {
           artProductId: 3,
-          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1609345580838.jpg'
+          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615514104226.jpg'
         },
         {
           artProductId: 5,
-          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615341672495.jpg'
+          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615515192746.jpg'
         },
         {
           artProductId: 6,
-          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615341764709.jpg'
+          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615515617796.jpg'
         },
         {
           artProductId: 7,
-          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615341985775.jpg'
+          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615515812224.jpg'
         },
         {
           artProductId: 8,
-          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615342156889.jpg'
+          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615516180835.jpg'
         },
         {
           artProductId: 9,
-          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615342330395.jpg'
+          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615516368823.jpg'
         },
         {
           artProductId: 10,
-          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615342621328.jpg'
+          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615516577176.jpg'
         },
         {
           artProductId: 11,
-          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615342796692.jpg'
+          url: 'https://artsysoloproject.s3.amazonaws.com/1615517063899.jpg' 
         },
         {
           artProductId: 12,
-          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615342910227.jpg'
+          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615517328478.jpg'
         },
         {
           artProductId: 13,
-          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615343013014.jpg'
+          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615517693213.jpg'
         },
         {
           artProductId: 14,
-          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615343111869.jpg'
+          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615518592402.jpg'
         },
         {
           artProductId: 15,
-          url: 'https://artsysoloproject.s3.amazonaws.com/1615343456087.jpg'
+          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615519061142.jpg'
         },
         {
           artProductId: 16,
-          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615343607823.jpg'
+          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615519331332.jpg'
         },
         {
           artProductId: 17,
-          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615343835332.jpg'
+          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615519521928.jpg'
         },
         {
           artProductId: 18,
-          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615344048448.jpg'
+          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615520068477.jpg'
         },
         {
           artProductId: 19,
-          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615344322015.jpg'
+          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615520900965.jpg'
         },
         {
           artProductId: 20,
-          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615344559166.jpg'
+          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615520758362.jpg'
         },
         {
           artProductId: 21,
-          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615344744482.jpg'
+          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615521181402.jpg'
         },
         {
           artProductId: 22,
-          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615344928736.jpg'
+          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615521298809.jpg'
         },
         {
           artProductId: 23,
-          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615345182515.jpg'
+          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615521524709.jpg'
         },
         {
           artProductId: 24,
-          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615345338472.jpg'
+          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615521872945.jpg'
         },
         {
           artProductId: 25,
-          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615345493098.jpg'
+          url: 'https://artsysoloproject.s3.us-east-2.amazonaws.com/1615522004420.jpg'
         },
         // {
         //   artProductId: 26,
