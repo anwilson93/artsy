@@ -45,6 +45,8 @@ const MyReviews = () => {
             <h3 className='add-margin'>All Reviews</h3>
             {myReviews && myReviews.map(review => {
 
+                let reviewDate = new Date(review.createdAt).toString().slice(0, 16)
+
                 const deleteReviewButton = (e) => {
                     e.preventDefault();
                     dispatch(deleteReview(review.id, sessionUser.id));
@@ -53,12 +55,20 @@ const MyReviews = () => {
             return (
                 <>
                     <div className='my-reviews-container'>
-                    <Link to={`/products/${review.artProductId}`} id='link'>{review.ArtProduct.title} Review
-                    </Link>
-                    <form style={{marginBottom: 50}}>
+                        <Link to={`/products/${review.artProductId}`} id='link-for-review'>{review.ArtProduct.title} Review</Link>
+                        <div className='reviewer-username' id='my-review-username'>
+                            <span style={{borderBottom: '1px solid black', marginRight: 8}}>{review.User.username}</span> {reviewDate} 
+                        </div>
+                        <div className='review-content'>
+                            {review.review}
+                        </div>
+                        <div>
+                            <button className='delete-review' onClick={deleteReviewButton}>Delete This Review</button>
+                        </div>
+                    {/* <form style={{marginBottom: 50}}>
                         <p>{review.User.username} said: {review.review}</p>
                         <button onClick={deleteReviewButton}>Delete This Review</button>
-                    </form>
+                    </form> */}
                     </div>
                 </>
             )
