@@ -1,9 +1,9 @@
 import {useDispatch } from 'react-redux';
 import {search} from '../../store/search.js';
-import canvas from './z-s-pCFw8nlNS9c-unsplash.jpg';
-import painting from './steve-johnson-5MTf9XyVVgM-unsplash.jpg';
-import pottery from './oshin-khandelwal-EQpXnijYejQ-unsplash.jpg';
-import photography from './nathan-dumlao-p4TKmK4Egvg-unsplash.jpg';
+import canvas from './canvas-compressed.jpg';
+import painting from './knitting-compressed.jpg';
+import pottery from './pottery-compressed.jpg';
+import photography from './photography-compressed.jpg';
 function HomePageJumbotron () {
 
     const dispatch = useDispatch();
