@@ -1,13 +1,13 @@
 import { useSelector, useDispatch} from "react-redux";
-import {useEffect} from 'react';
+import {useEffect, useState} from 'react';
 import {useHistory} from 'react-router-dom';
-import {getAllCartProducts, removeProductFromCart} from "../../store/cart";
+import {getAllCartProducts, removeProductFromCart, clearCart} from "../../store/cart";
 import {fetchOneProduct} from '../../store/artProducts';
 import './ViewShoppingCart.css';
 
 
 function ViewShoppingCart(){
-    // const cartItems = useSelector(state => Object.values(state.cart));
+    const [error, setError] = useState([]);
     const dispatch = useDispatch();
     let history = useHistory();
 
@@ -35,6 +35,16 @@ function ViewShoppingCart(){
             history.push(`/products/${id}`)
         })
         
+    }
+
+    const checkout = (total) => {
+        if(total === 0){
+            setError('Cart must not be empty')
+        } else {
+            dispatch(clearCart(orderId)).then(() => {
+            history.push(`/checkout`)
+            })
+        }
     }
 
 
@@ -92,7 +102,13 @@ function ViewShoppingCart(){
 
             </div>
             <div className='cart-total-div'>
-                item(s) total ${total}
+                <div id='total-in-cart'>
+                    <span>item(s) total</span> <span style={{fontWeight:'bold'}} >${total}</span>
+                </div>
+                <div><button className='add-to-cart-button' onClick={() => checkout(total)}>Proceed to checkout</button></div>
+                <div style={{marginTop: 15}}>
+                    <div>{error}</div>
+                </div>
             </div>
             </div>
         </>

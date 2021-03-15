@@ -26,6 +26,21 @@ router.delete('/:orderDetailId(\\d+)', asyncHandler(async(req, res, next) => {
     res.json({message: 'Deleted'})
 }));
 
+router.delete('/clear/:orderId(\\d+)', asyncHandler(async(req, res, next) => {
+    const orderId = req.params.orderId
+ 
+    
+    const orderDetails = await OrderDetail.findAll({where: {orderId}});
+
+    if(orderDetails){
+        const asyncDeleteOrderItems = await Promise.all(orderDetails.map(async (item) => {
+	      await item.destroy();
+      }));
+    }
+   
+    res.json({message: 'Deleted'})
+}));
+
 // GET ALL CART ITEMS
 router.get('/:orderId(\\d+)', asyncHandler(async(req, res) => {
 

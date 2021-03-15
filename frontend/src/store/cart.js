@@ -48,6 +48,13 @@ export const removeProductFromCart = (orderDetailId, orderId) => async(dispatch)
     dispatch(getAllCartProducts(orderId))
 }
 
+export const clearCart = (orderId) => async(dispatch) => {
+    await fetch(`/api/cart/clear/${orderId}`, {
+        method: 'DELETE'
+    })
+    dispatch(getAllCartProducts(orderId))
+}
+
 
 export const getAllCartProducts = (orderId) => {
     return async (dispatch) => {
